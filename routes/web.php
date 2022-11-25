@@ -65,7 +65,7 @@ Route::prefix('posts')->group(function () {
     Route::get('/edit/{id}' , 'edit')->name('edit');
     Route::get('/trashed_posts' , 'trashed_posts')->name('trashed_posts');
     Route::post('/store' , 'store')->name('store');
-    Route::post('/update/{id}' , 'update')->name('update');
+    Route::post('/update/{id}/{image}' , 'update')->name('update');
     Route::get('/delete/{id}' , 'delete')->name('delete');
     Route::get('/forceDelete/{id}' , 'forceDelete')->name('forceDelete');
     Route::get('/restorePost/{id}' , 'restorePost')->name('restorePost');

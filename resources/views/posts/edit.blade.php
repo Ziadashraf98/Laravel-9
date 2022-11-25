@@ -30,7 +30,7 @@
         </div>
         @endif
 
-    <form action="{{route('update' , $post->id)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{url('/posts/update' , $post->id)}}/{{$post->image}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div style="padding-inline: 45%; color:red">
             <h1>Edit Post</h1>
@@ -51,7 +51,7 @@
         <div style="padding-inline: 40%">
         <label style="color: blue" for="">Old Image:</label>
             <td style="color: white; padding:20px;">
-                <img style="padding: 20px; height:150px" src="{{asset($post->image)}}">
+                <img style="padding: 20px; height:150px" src="{{asset('productimage/'.$post->image)}}">
             </td>
         </div>
 

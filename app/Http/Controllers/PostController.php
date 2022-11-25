@@ -51,9 +51,8 @@ class PostController extends Controller
         
         $validation = $request->validated();
         $image = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->move('productimage' , $image);
-        // $path = $request->file('image')->storeAs('productimage' , $image , 'public');
-        $validation['image'] = $path;
+        $request->file('image')->move('productimage' , $image);
+        $validation['image'] = $image;
         Post::create($validation);
 
         
@@ -63,9 +62,9 @@ class PostController extends Controller
         // Post::create($validation);
         
         
-        $users = User::all()->except(Auth::id());
-        Mail::to(Auth::user())->send(new TestMail);
-        Notification::send($users , new TestNotification);
+        // $users = User::all()->except(Auth::id());
+        // Mail::to(Auth::user())->send(new TestMail);
+        // Notification::send($users , new TestNotification);
 
         return redirect()->route('posts')->with('success' , 'Post Added Successfully');
     }
@@ -84,10 +83,10 @@ class PostController extends Controller
 
         if($request->file('image'))
         {
-            $image = $request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->move('productimage' , $image);
-            $post->update(['image'=>$path]);
-            Storage::delete($image);
+            $post->image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->move('productimage' , $post->image);
+            $post->update();
+            Storage::disk('public_uploads')->delete($image);
         }
         
         return back()->with('success' , 'Post Updated Successfully');

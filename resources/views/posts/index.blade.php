@@ -38,7 +38,7 @@
             <td style="padding: 20px;">{{$post->title}}</td>
             <td style="padding: 20px;">{{$post->body}}</td>
             <td style="color: white; padding:20px;">
-                <img style="padding: 20px; height:150px" src="{{$post->image}}">
+                <img style="padding: 20px; height:150px" src="{{'productimage/'.$post->image}}">
             </td>
             <td style="padding: 20px;">
                 <a class="btn btn-primary" href="{{route('edit' , $post->id)}}">Edit</a>

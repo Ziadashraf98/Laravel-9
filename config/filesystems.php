@@ -36,17 +36,15 @@ return [
             'throw' => false,
         ],
 
-        // 'public' => [
-        //     'driver' => 'local',
-        //     'root' => storage_path('app/public'),
-        //     'url' => env('APP_URL').'/storage',
-        //     'visibility' => 'public',
-        //     'throw' => false,
-        // ],
-        
-        'public' => [
+        'public_uploads' => [
             'driver' => 'local',
             'root' => public_path('productimage'),
+            'throw' => false,
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
