@@ -30,7 +30,7 @@
         </div>
         @endif
 
-    <form action="{{url('/posts/update' , $post->id)}}/{{$post->image}}" method="POST" enctype="multipart/form-data">
+    <form action="{{url('/posts/update' , $post->id. '/' .$post->image)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div style="padding-inline: 45%; color:red">
             <h1>Edit Post</h1>
