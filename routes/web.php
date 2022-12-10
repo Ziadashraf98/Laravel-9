@@ -74,6 +74,14 @@ Route::prefix('posts')->group(function () {
 });
 });
 
+
+Route::group(['prefix'=>'ziad' , 'middleware'=>'auth'] , function () {
+    Route::controller(UserController::class)->group(function() {
+
+    Route::get('/' , 'index');
+});
+});
+
 //==================================================================================================================
 
 // Auth::routes(['verify'=>true]);
