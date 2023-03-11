@@ -29,5 +29,10 @@ class HomeController extends Controller
     public function zz()
     {
         
-    }   
+    }
+    
+    public function ss()
+    {
+        
+    } 
 }
